@@ -1,0 +1,245 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, sans-serif;
+}
+
+body {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #282828;
+}
+
+.main {
+    width: 350px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #292929;
+    border: 1px blue solid;
+    box-shadow: rgba(0, 0, 0, 0.397) 0 0 10px;
+}
+
+button {
+    background-color: rgb(23, 196, 0);
+    border: 1px rgb(29, 0, 145) solid;
+    padding: 7px 10px;
+    border-radius: 6px;
+    color: white;
+    font-weight: bold;
+    box-shadow: #2e66dfa2 0 0 10px;
+    cursor: pointer;
+}
+button:active {
+    opacity: 0.8;
+    scale: 0.97;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+.main > div {
+}
+
+.scoreboard {
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px blue solid;
+}
+
+.playername {
+    margin-bottom: 5px;
+    color: #d2d4da;
+}
+
+.playername > span {
+    color: white;
+    font-size: 24px;
+}
+
+.gamespace {
+    position: relative;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+.turn {
+    height: 60px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-top: 1px blue solid;
+}
+
+.turns {
+    color: grey;
+    transition: color 0.4s ease;
+}
+
+.turns.active {
+    color: white;
+}
+
+/* =========== */
+
+.game {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    height: 321px;
+    width: 321px;
+    border: 1px rgb(105, 107, 110) solid;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.game > div {
+    border: 1px rgb(105, 107, 110) solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 40px;
+    font-weight: 500;
+    cursor: cell;
+}
+
+.game > div:nth-child(1) {
+    border-top-left-radius: 4px;
+}
+
+.game > div:nth-child(3) {
+    border-top-right-radius: 4px;
+}
+
+.game > div:nth-child(7) {
+    border-bottom-left-radius: 4px;
+}
+
+.game > div:nth-child(9) {
+    border-bottom-right-radius: 4px;
+}
+
+#display_winner_line {
+    position: absolute;
+    height: 300px;
+    width: 4px;
+    border-radius: 3px;
+    scale: 0;
+    background-color: rgb(47, 179, 255);
+    box-shadow: blue 0 0 7px;
+}
+
+/* =========================
+            Display
+============================*/
+
+#display_winner_line.h1 {
+    translate: 0 -106px;
+    rotate: 90deg;
+}
+#display_winner_line.h2 {
+    translate: 0;
+    rotate: 90deg;
+}
+#display_winner_line.h3 {
+    translate: 0 106px;
+    rotate: 90deg;
+}
+
+#display_winner_line.v1 {
+    translate: -106px 0;
+    rotate: 0;
+}
+#display_winner_line.v2 {
+    translate: 0;
+    rotate: 0;
+}
+#display_winner_line.v3 {
+    translate: 106px 0;
+    rotate: 0;
+}
+
+#display_winner_line.d1 {
+    translate: 0;
+    rotate: -45deg;
+}
+#display_winner_line.d2 {
+    translate: 0;
+    rotate: 45deg;
+}
+
+#display_winner_line.active {
+    transition: all 1s ease;
+    scale: 1;
+}
+#display_winner_line.active[class*="d"] {
+    transition: all 1s ease;
+    scale: 1.24;
+}
+
+/*  */
+#restart {
+    background-color: rgb(253, 4, 4);
+    position: absolute;
+    bottom: 20px;
+    z-index: 10;
+}
+.winner_announce {
+    background-color: rgba(23, 23, 26, 0.63);
+    position: absolute;
+    z-index: -100;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: opacity 0.8s ease;
+}
+.winner_announce.active {
+    opacity: 1;
+    z-index: 120;
+}
+#try_again {
+    background-color: goldenrod;
+    position: absolute;
+    bottom: 50px;
+}
+.winner_announce > h1 {
+    user-select: none;
+    color: rgb(23, 196, 0);
+    text-shadow: rgb(13, 17, 230) 0 0 6px;
+    font-size: 50px;
+    text-align: center;
+    line-height: 58px;
+    scale: 0;
+    transition: all 0.6s ease;
+}
+.winner_announce > h1.red {
+    color: red;
+    text-shadow: rgba(0, 0, 0, 0.836) 0 0 5px;
+}
+.winner_announce > h1.yellow {
+    color: yellow;
+    text-shadow: rgb(110, 238, 25) 0 0 5px;
+}
+
+.winner_announce.active > h1 {
+    scale: 1;
+}
