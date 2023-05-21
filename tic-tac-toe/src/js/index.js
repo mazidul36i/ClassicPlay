@@ -212,7 +212,6 @@ const enterGameRoom = async (roomId) => {
     if (roomDetails.players && Object.keys(roomDetails.players).includes(mUser.uid)) {
         console.log(`Joined [${roomId}]`);
         startGame(roomId);
-        updateGamesPlayed(mUser.uid);
         return;
     } else if (!snapshot.val().players || Object.keys(roomDetails.players).length < 2) {
         console.log(`Joined room successfully [${roomId}]`);
