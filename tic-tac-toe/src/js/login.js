@@ -9,7 +9,7 @@ import {
     sendPasswordResetEmail,
     signOut,
 } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
-import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
+import { initializeAppCheck, ReCaptchaV3Provider } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app-check.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyALaZLJLP5suH4sDM4T63Ys8hYjYdZ4Dbw",
