@@ -1,0 +1,18 @@
+{
+  "name": "tic-tac-toe",
+  "version": "1.0.0",
+  "description": "A classic Tic Tac Toe game to play with friends online",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "tic-tac-toe"
+  ],
+  "author": "Mazidul Islam",
+  "license": "ISC",
+  "dependencies": {
+    "firebase": "^9.22.0",
+    "shortid": "^2.2.16"
+  }
+}

@@ -5,20 +5,59 @@
 }
 
 body {
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
     background-color: #282828;
 }
 
-.main {
+input:-webkit-autofill {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #d2d4da;
+}
+
+/* =========================
+            nav
+============================*/
+.nav {
+    position: sticky;
+    display: flex;
+    top: 0;
+    background-color: #1d1d1d;
+    padding: 10px 20px;
+    color: #d2d4da;
+    align-items: center;
+    gap: 10px;
+}
+.nav > .profile-username {
+    font-size: 20px;
+}
+.nav > .edit-pencil {
+    width: 24px;
+    cursor: pointer;
+}
+.nav .profile-scoreboard {
+    display: flex;
+    gap: 15px;
+    margin-left: auto;
+}
+.nav .profile-scoreboard span {
+    color: rgb(0, 231, 0);
+}
+.nav * {
+    white-space: nowrap;
+}
+
+.logout {
+    width: 24px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* =========================
+            main
+============================*/
+.board {
     width: 350px;
     border-radius: 10px;
+    margin: 60px auto 30px;
     overflow: hidden;
     background-color: #292929;
     border: 1px blue solid;
@@ -45,25 +84,33 @@ button:disabled {
     cursor: default;
 }
 
-.main > div {
-}
-
 .scoreboard {
     height: 60px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     border-bottom: 1px blue solid;
+    padding: 6px;
+    gap: 10px;
 }
 
 .playername {
+    display: flex;
+    flex-direction: column;
     margin-bottom: 5px;
     color: #d2d4da;
+    text-align: center;
 }
-
-.playername > span {
+.playername > span:nth-child(1) {
     color: white;
-    font-size: 24px;
+    font-size: 22px;
+}
+.playername > span:nth-child(2) {
+    display: block;
+    width: 165px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .gamespace {
@@ -191,15 +238,9 @@ button:disabled {
 }
 
 /*  */
-#restart {
-    background-color: rgb(253, 4, 4);
-    position: absolute;
-    bottom: 20px;
-    z-index: 10;
-}
 .winner_announce {
     background-color: rgba(23, 23, 26, 0.63);
-    position: absolute;
+    position: fixed;
     z-index: -100;
     opacity: 0;
     top: 0;
@@ -216,8 +257,8 @@ button:disabled {
     opacity: 1;
     z-index: 120;
 }
-#try_again {
-    background-color: goldenrod;
+#play_again {
+    background-color: rgb(23, 196, 0);
     position: absolute;
     bottom: 50px;
 }
@@ -242,4 +283,82 @@ button:disabled {
 
 .winner_announce.active > h1 {
     scale: 1;
+}
+
+/* =========================
+            Promt
+============================*/
+.promt {
+    position: fixed;
+    display: none;
+    z-index: 150;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-origin: red;
+}
+
+/* =========================
+        Start Container
+============================*/
+.start-container {
+    display: flex;
+    flex-direction: column;
+    max-width: fit-content;
+    margin: 140px auto 50px;
+    padding: 10px;
+    border: 1px white solid;
+    border-radius: 10px;
+    background-color: #292929;
+    box-shadow: rgba(0, 0, 0, 0.397) 0 0 10px;
+    align-items: center;
+    gap: 10px;
+}
+.start-container > * {
+    border: 1px grey solid;
+    border-radius: 6px;
+}
+
+.start-container button {
+    box-shadow: #2e66dfa2 0 0 4px;
+    white-space: nowrap;
+}
+
+.join-room {
+    display: flex;
+    overflow: hidden;
+}
+.join-room input {
+    width: 100%;
+    background-color: transparent;
+    padding: 4px 10px;
+    outline: none;
+    border: none;
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+/* =========================
+        Media Query
+============================*/
+@media (max-width: 560px) {
+    .nav .profile-scoreboard {
+        font-size: 8px;
+        gap: 10px;
+    }
+    .nav .profile-scoreboard span {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 380px) {
+    .nav .profile-scoreboard {
+        font-size: 0;
+        gap: 10px;
+    }
+    .nav .profile-scoreboard span {
+        font-size: 14px;
+    }
 }
