@@ -1,6 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
 import { getDatabase, ref, onValue, set, push, child, get, update, off, runTransaction } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js";
 import { getAuth, onAuthStateChanged, signOut, updateProfile } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
+import { initializeAppCheck, ReCaptchaV3Provider } from "firebase/app-check";
 
 const firebaseConfig = {
     apiKey: "AIzaSyALaZLJLP5suH4sDM4T63Ys8hYjYdZ4Dbw",
@@ -13,6 +14,10 @@ const firebaseConfig = {
     measurementId: "G-23YJW741SM",
 };
 const app = initializeApp(firebaseConfig);
+const appCheck = initializeAppCheck(app, {
+    provider: new ReCaptchaV3Provider("6Le8VSgmAAAAAIuyC1aFnB_n3uFYhe8bvAb6aeyn"),
+    isTokenAutoRefreshEnabled: true,
+});
 const auth = getAuth(app);
 const database = getDatabase(app);
 let mUser;
