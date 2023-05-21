@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Login</title>
+        <link rel="stylesheet" href="./css/login.css" />
+    </head>
+    <body>
+        <form id="login_form" class="login-form">
+            <h2 class="title">Login to continue</h2>
+            <input hidden type="text" id="username" placeholder="Username" pattern="^.{3,20}$" title="Required at least 3 & maximum 20 characters" />
+            <input type="email" id="email" placeholder="Email" required />
+            <input type="password" id="password" placeholder="Password" pattern="^.{6,}$" title="Required at least 6 charaters" required />
+            <input type="submit" value="Submit" />
+
+            <p class="change-login-signup-text"><span class="text">Don't have an account?</span> <span class="change-login-signup">Register</span> now</p>
+            <p class="forgot-password">Forgot password? <span id="forgot_password">Reset</span></p>
+        </form>
+
+        <script type="module" src="./js/login.js"></script>
+    </body>
+</html>
