@@ -5,6 +5,7 @@ import { getAuth, onAuthStateChanged, signOut, updateProfile } from "https://www
 const firebaseConfig = {
     apiKey: "AIzaSyALaZLJLP5suH4sDM4T63Ys8hYjYdZ4Dbw",
     authDomain: "gs-gameplay.firebaseapp.com",
+    databaseURL: "https://gs-gameplay-default-rtdb.asia-southeast1.firebasedatabase.app",
     projectId: "gs-gameplay",
     storageBucket: "gs-gameplay.appspot.com",
     messagingSenderId: "353145150738",
