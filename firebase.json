@@ -9,8 +9,8 @@
                 "destination": "/index.html"
             },
             {
-                "source": "**",
-                "destination": "/$&.html"
+                "source": "/login",
+                "destination": "/login.html"
             }
         ]
     }
