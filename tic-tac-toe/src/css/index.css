@@ -114,7 +114,6 @@ button:disabled {
 }
 
 .gamespace {
-    position: relative;
     height: 350px;
     display: flex;
     align-items: center;
